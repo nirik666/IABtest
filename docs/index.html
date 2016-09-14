@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'" />
+</head>
+<body>
+    testtest
+    <button id="local">local</button>
+    <button id="remote">remote</button>
+</body>
+    <!--
+<script type="text/javascript" src="file:///android_asset/www/cordova.js"></script>
+-->
+<script type="text/javascript">
+document.addEventListener('deviceready', function(){
+    window.alert(1);
+    window.alert(navigator);
+}, false);
+
+function InAppBrowser22222() {
+    window.alert("InAppBrowser");
+    console.log("InAppBrowser22222");
+}
+document.getElementById("local").addEventListener("click", function(){
+    console.log("click");
+    prompt("[2,3,4]", "gap-iab://InAppBrowser11111");
+}, false);
+document.getElementById("remote").addEventListener("click", function(){
+    prompt("", "gap-iab://InAppBrowser22222");
+}, false);
+</script>
+</html>
